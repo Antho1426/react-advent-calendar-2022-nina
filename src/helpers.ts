@@ -11,12 +11,6 @@ const shuffle = (a: any[]) => {
   return a;
 };
 
-// export type HatchType = {
-//   nr: number;
-//   img: string;  // URL of the image in the "img" folder; all images are taken from "Unsplash" (https://unsplash.com) (when the application is built, it will go inside the "img" folder and grab the corresponding image based on its URL)
-//   imgb: string;
-//   open: boolean;  // By default all hatch are closed, so "open" boolean field is set to "false" by default
-// };
 export type HatchType = {
   nr: number;
   img: string;  // URL of the image in the "img" folder; all images are taken from "Unsplash" (https://unsplash.com) (when the application is built, it will go inside the "img" folder and grab the corresponding image based on its URL)

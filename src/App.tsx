@@ -29,6 +29,7 @@ const StyledApp = styled.div`
 //==================================
 //==================================
 
+// DONE: change those pictures with actual pictures of Nina and I from the beginning of our story
 // Image paths
 import img1 from './img/1.jpg';
 import img2 from './img/2.jpg';
@@ -235,33 +236,33 @@ const createCalendar = (): HatchType[] => shuffle(hatchArray);
 
 const App: React.FC = () => {
   
-  // TODO: Switch to localStorage mode when development and testing will be finished!
+  // DONE: Switch to "localStorage" mode when development and testing are finished.
   // A) === localStorage ===
-  // // This will populate the state with the hatches
-  // // const [hatches, setHatches] = React.useState<HatchType[]>(
-  // //   localStorage.calendar ? JSON.parse(localStorage.calendar) : createCalendar()
-  // // );
-  // // const [hatches, setHatches] = React.useState<HatchType[]>(
-  // //   localStorage.calendar !== 'undefined' ? JSON.parse(localStorage.calendar) : createCalendar()
-  // // );
-  // const [hatches, setHatches] = React.useState<HatchType[]>(localStorage.getItem("calendar") !== undefined ? JSON.parse(localStorage.calendar) : createCalendar());  // cf. "Stack Overflow - "undefined" is not valid JSON" (https://stackoverflow.com/questions/73455972/undefined-is-not-valid-json)
-  // // const isObject = (object: unknown): object is { [key: string]: any } => typeof object === "object" && object !== null;
-  // // const [hatches, setHatches] = React.useState<HatchType[]>(
-  // //   if (isObject(localStorage.getItem('calendar'))) {
-  // //     JSON.parse(localStorage.getItem('calendar'));
-  // //   } else {
-  // //     createCalendar();
-  // //   }
-  // // );
+  // This will populate the state with the hatches
+  // const [hatches, setHatches] = React.useState<HatchType[]>(
+  //   localStorage.calendar ? JSON.parse(localStorage.calendar) : createCalendar()
+  // );
+  // const [hatches, setHatches] = React.useState<HatchType[]>(
+  //   localStorage.calendar !== 'undefined' ? JSON.parse(localStorage.calendar) : createCalendar()
+  // );
+  const [hatches, setHatches] = React.useState<HatchType[]>(localStorage.getItem("calendar") !== undefined ? JSON.parse(localStorage.calendar) : createCalendar());  // cf. "Stack Overflow - "undefined" is not valid JSON" (https://stackoverflow.com/questions/73455972/undefined-is-not-valid-json)
+  // const isObject = (object: unknown): object is { [key: string]: any } => typeof object === "object" && object !== null;
+  // const [hatches, setHatches] = React.useState<HatchType[]>(
+  //   if (isObject(localStorage.getItem('calendar'))) {
+  //     JSON.parse(localStorage.getItem('calendar'));
+  //   } else {
+  //     createCalendar();
+  //   }
+  // );
     
-  // // Store calendar in localStorage (every time the hatches will change, we are going to save them to localStorage)
-  // React.useEffect(() => {
-  //   localStorage.setItem('calendar', JSON.stringify(hatches));
-  // }, [hatches]);
+  // Store calendar in localStorage (every time the hatches will change, we are going to save them to localStorage)
+  React.useEffect(() => {
+    localStorage.setItem('calendar', JSON.stringify(hatches));
+  }, [hatches]);
   //========================
 
-  // A) === No localStorage ===
-  const [hatches, setHatches] = React.useState<HatchType[]>(createCalendar());
+  // B) === No localStorage ===
+  //const [hatches, setHatches] = React.useState<HatchType[]>(createCalendar());
   //===========================
 
   const handleClickHatch = React.useCallback((nr: number): void => {
@@ -270,16 +271,26 @@ const App: React.FC = () => {
 
   // Making sure the user can't click on a hatch if its date is not yet passed or it is not today
   const isHatchEnabled = React.useCallback((nr: number): boolean => {
+  
+    // /!\ UTC time is the local time at Greenwich England! Since Nina will be in Australia during the entire month of December 2022, I am interested in the local date in Darwin, in the middle of Australia!
+    /*
     const date = new Date();
-
     const day = date.getUTCDate();
     const month = date.getMonth();  // starts with 0, meaning that 11 ≡ December
     const year = date.getFullYear();
+    */
+    const dateDarwin = new Date().toLocaleString("en-US", {timeZone: "Australia/Darwin"});  // cf. "Stack Overflow - How to get the Australian Time Zone using Javascript? (Not JQuery)" (https://stackoverflow.com/questions/29984895/how-to-get-the-australian-time-zone-using-javascript-not-jquery)
+    const dateArray = dateDarwin.split("/");
+    const day = parseInt(dateArray[1]);
+    const month = parseInt(dateArray[0]);
+    const year = parseInt(dateArray[2].split(",")[0]);
 
-    const targetMonth = 10;  // 11 ≡ December // TODO: change to 11 and not 10 after final testing!!!
+    // DONE: change from "11" (i.e., November) to "12" (i.e., December) after final testing of the app.
+    const targetMonth = 12;  // 12 ≡ December
 
-    if (year > 2022) return true;  // in case 2022 is over, then we enable all of the hatches (there is no use to block the user from clicking on the hatches after 2022)
+    if (year > 2022 || day >= 24) return true;  // in case 2022 is over or the 24th of December is passed, then we enable all of the hatches (there is no use to block the user from clicking on the hatches after 2022)
     if (month === targetMonth && nr <= day) return true;  // with this line, if the month is december and the number of the hatch is less or equal to the current date, then it's possible to click the hatch!
+    console.log("Local date in Darwin: " + year + "-" + month + "-" + day);
 
     return false;
   }, []);  // "[]" is the dependency array (it is empty because this function does not depend on anything outside of it)
