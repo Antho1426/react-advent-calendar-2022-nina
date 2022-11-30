@@ -1,9 +1,33 @@
 import React from 'react';
 import Hatch from './components/Hatch/Hatch';
-//import { HatchType, createCalendar } from './helpers';
 
 // Styles
-import { GlobalStyle, StyledApp } from './App.styles';
+//import { GlobalStyle, StyledApp } from './App.styles';
+
+//=== Content from App.styles.ts ===
+//==================================
+
+import styled, { createGlobalStyle } from 'styled-components';
+
+import calendar_backdrop from './img/calendar_backdrop.jpg';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: center / cover url(${calendar_backdrop});
+    margin: 0;
+    height: 100vh;
+  }
+`;
+
+const StyledApp = styled.div`
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 40px; /* 40px */
+`;
+
+//==================================
+//==================================
 
 // Image paths
 import img1 from './img/1.jpg';
@@ -30,6 +54,9 @@ import img21 from './img/21.jpg';
 import img22 from './img/22.jpg';
 import img23 from './img/23.jpg';
 import img24 from './img/24.jpg';
+
+// Helpers
+//import { HatchType, createCalendar } from './helpers';
 
 //=== Content from helpers.ts ===
 //===============================
@@ -202,6 +229,7 @@ const hatchArray: HatchType[] = [
 ];
 
 const createCalendar = (): HatchType[] => shuffle(hatchArray);
+
 //===============================
 //===============================
 
