@@ -235,31 +235,20 @@ const createCalendar = (): HatchType[] => shuffle(hatchArray);
 //===============================
 
 const App: React.FC = () => {
-  
+
   // DONE: Switch to "localStorage" mode when development and testing are finished.
-  // A) === localStorage ===
-  // This will populate the state with the hatches
-  // const [hatches, setHatches] = React.useState<HatchType[]>(
-  //   localStorage.calendar ? JSON.parse(localStorage.calendar) : createCalendar()
-  // );
-  // const [hatches, setHatches] = React.useState<HatchType[]>(
-  //   localStorage.calendar !== 'undefined' ? JSON.parse(localStorage.calendar) : createCalendar()
-  // );
-  const [hatches, setHatches] = React.useState<HatchType[]>(localStorage.getItem("calendar") !== undefined ? JSON.parse(localStorage.calendar) : createCalendar());  // cf. "Stack Overflow - "undefined" is not valid JSON" (https://stackoverflow.com/questions/73455972/undefined-is-not-valid-json)
-  // const isObject = (object: unknown): object is { [key: string]: any } => typeof object === "object" && object !== null;
-  // const [hatches, setHatches] = React.useState<HatchType[]>(
-  //   if (isObject(localStorage.getItem('calendar'))) {
-  //     JSON.parse(localStorage.getItem('calendar'));
-  //   } else {
-  //     createCalendar();
-  //   }
-  // );
+  // A) ==== localStorage =====
+  // // This will populate the state with the hatches
+  // const [hatches, setHatches] = React.useState<HatchType[]>(localStorage.getItem("calendar") !== undefined ? JSON.parse(localStorage.calendar) : createCalendar());  // cf. "Stack Overflow - "undefined" is not valid JSON" (https://stackoverflow.com/questions/73455972/undefined-is-not-valid-json)
+  const [hatches, setHatches] = React.useState<HatchType[]>(
+    localStorage.calendar === undefined ? createCalendar() : JSON.parse(localStorage.calendar)
+  );
     
-  // Store calendar in localStorage (every time the hatches will change, we are going to save them to localStorage)
+  // // Store calendar in localStorage (every time the hatches will change, we are going to save them to localStorage)
   React.useEffect(() => {
     localStorage.setItem('calendar', JSON.stringify(hatches));
   }, [hatches]);
-  //========================
+  //===========================
 
   // B) === No localStorage ===
   //const [hatches, setHatches] = React.useState<HatchType[]>(createCalendar());
