@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/react-advent-calendar-2022-nina/",
+  base: '/react-advent-calendar-2022-nina/',
   plugins: [react()]
 })
