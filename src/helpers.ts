@@ -1,3 +1,6 @@
+//=== Content from helpers.ts ===
+//===============================
+
 /**
  * Found this on Stackoverflow https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
  * Shuffles array in place. ES6 version
@@ -24,153 +27,6 @@ export type HatchType = {
   open: boolean;  // By default all hatch are closed, so "open" boolean field is set to "false" by default
 };
 
-// Bad one-liners from https://onelinefun.com/christmas
-// export const hatchArray: HatchType[] = [
-//   {
-//     nr: 1,
-//     img: './public/assets/img/1.jpg',
-//     imgb: './public/assets/img/1_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 2,
-//     img: './public/assets/img/2.jpg',
-//     imgb: './public/assets/img/2_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 3,
-//     img: './public/assets/img/3.jpg',
-//     imgb: './public/assets/img/3_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 4,
-//     img: './public/assets/img/4.jpg',
-//     imgb: './public/assets/img/4_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 5,
-//     img: './public/assets/img/5.jpg',
-//     imgb: './public/assets/img/5_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 6,
-//     img: './public/assets/img/6.jpg',
-//     imgb: './public/assets/img/6_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 7,
-//     img: './public/assets/img/7.jpg',
-//     imgb: './public/assets/img/7_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 8,
-//     img: './public/assets/img/8.jpg',
-//     imgb: './public/assets/img/8_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 9,
-//     img: './public/assets/img/9.jpg',
-//     imgb: './public/assets/img/9_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 10,
-//     img: './public/assets/img/10.jpg',
-//     imgb: './public/assets/img/10_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 11,
-//     img: './public/assets/img/11.jpg',
-//     imgb: './public/assets/img/11_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 12,
-//     img: './public/assets/img/12.jpg',
-//     imgb: './public/assets/img/12_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 13,
-//     img: './public/assets/img/13.jpg',
-//     imgb: './public/assets/img/13_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 14,
-//     img: './public/assets/img/14.jpg',
-//     imgb: './public/assets/img/14_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 15,
-//     img: './public/assets/img/15.jpg',
-//     imgb: './public/assets/img/15_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 16,
-//     img: './public/assets/img/16.jpg',
-//     imgb: './public/assets/img/16_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 17,
-//     img: './public/assets/img/17.jpg',
-//     imgb: './public/assets/img/17_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 18,
-//     img: './public/assets/img/18.jpg',
-//     imgb: './public/assets/img/18_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 19,
-//     img: './public/assets/img/19.jpg',
-//     imgb: './public/assets/img/19_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 20,
-//     img: './public/assets/img/20.jpg',
-//     imgb: './public/assets/img/20_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 21,
-//     img: './public/assets/img/21.jpg',
-//     imgb: './public/assets/img/21_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 22,
-//     img: './public/assets/img/22.jpg',
-//     imgb: './public/assets/img/22_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 23,
-//     img: './public/assets/img/23.jpg',
-//     imgb: './public/assets/img/23_b.jpg',
-//     open: false
-//   },
-//   {
-//     nr: 24,
-//     img: './public/assets/img/24.jpg',
-//     imgb: './public/assets/img/24_b.jpg',
-//     open: false
-//   }
-// ];
 export const hatchArray: HatchType[] = [
   {
     nr: 1,
@@ -319,3 +175,5 @@ export const hatchArray: HatchType[] = [
 ];
 
 export const createCalendar = (): HatchType[] => shuffle(hatchArray);
+//===============================
+//===============================

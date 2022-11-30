@@ -4,7 +4,7 @@ import styled from 'styled-components';
 //import hatchBackdrop from '../../img/hatch_backdrop_v3.jpg';  // v3
 //import hatchBackdrop from '../../img/hatch_backdrop_v4.jpg';  // v4
 import hatchBackdrop from '../../img/hatch_backdrop_v5.jpg';  // v5
-import img_1_b from '../../img/1_b.jpg';
+//import img_1_b from '../../img/1_b.jpg';
 
 // type Props = {
 //   open: boolean;
