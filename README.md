@@ -35,7 +35,7 @@ This calendar offers an interesting alternative to more traditional physical Adv
 
 ## 2. Technologies
 
-To realize this project, in addition to Typescript, HTML and CSS web languages, I leveraged from a higher perspective following technologies:
+To realize this project, in addition to Typescript, HTML and CSS web languages, I leveraged, from a higher perspective, following technologies:
 
 - [React JS](https://reactjs.org/): A famous JavaScript library for building user interfaces.
 - [Vite](https://vitejs.dev/): A build tool aiming at providing a faster and leaner development experience for modern web projects.
@@ -43,7 +43,7 @@ To realize this project, in addition to Typescript, HTML and CSS web languages, 
 
 ## 3. Getting started
 
-As explained in YouTube video "[React Advent Calendar - With Typescript](https://www.youtube.com/watch?v=noyJTgRx32k)", the starter files and finished project initially created by Thomas Weibenfalk can be found at [advanced-react-calendar-2021 GitHub repository](https://github.com/weibenfalk/advanced-react-calendar-2021). Here is the initial setup to get started with a similar project:
+As explained in YouTube video "[React Advent Calendar - With Typescript](https://www.youtube.com/watch?v=noyJTgRx32k)", the starter files and finished project initially created by **Thomas Weibenfalk** can be found at [advanced-react-calendar-2021](https://github.com/weibenfalk/advanced-react-calendar-2021) GitHub repository. Below is the initial setup to get started with a similar project:
 
 1. Download files from [advanced-react-calendar-2021](https://github.com/weibenfalk/advanced-react-calendar-2021) GitHub repository.
 
@@ -53,7 +53,7 @@ As explained in YouTube video "[React Advent Calendar - With Typescript](https:/
 
     ![npm-install](assets/npm-install.jpg)
 
-4. Then type `npm run dev` to start up the "Vite configuration" that Thomas Weibenfalk created for starting with this project.
+4. Then type `npm run dev` to start up the "Vite configuration" that **Thomas Weibenfalk** created for starting with this project.
 
 ## 4. Deploying Vite web app to GitHub Pages
 
@@ -68,13 +68,13 @@ In order to host my web app on GitHub Pages, I followed the instructions from Yo
     git add .
     git commit -m "First commit"
     git branch -M main
-    git remote add origin https://github.com/<my-github-profile-name>/<my-repository-name>.git
+    git remote add origin https://github.com/my-github-profile-name/my-repository-name.git
     git push -u origin main
     ```
 
-    After pushing, the code should be visible in the GitHub repository you just created and corresponding to following URL: "https://github.com/\<my-github-profile-name>/\<my-hosted-repository-name>.git".
+    After pushing, the code should be visible in the GitHub repository you just created and corresponding to following URL: "https://github.com/my-github-profile-name/my-hosted-repository-name.git".
 
-3. Now in order to actually start deploying the web app, files have to be accessed like "https://\<my-github-profile-name>.github.io/\<my-hosted-repository-name>/" . For this, the Vite config file situated at the root of the project and called "vite.config.js" has to be changed in the following way in order to set the base URL of the repository:
+3. Now in order to actually start deploying the web app, files have to be accessed like "https://my-github-profile-name.github.io/my-hosted-repository-name/" . For this, the Vite config file situated at the root of the project and called "vite.config.js" has to be changed in the following way in order to set the base URL of the repository:
 
     Initial configuration:
 
@@ -88,7 +88,7 @@ In order to host my web app on GitHub Pages, I followed the instructions from Yo
     })
     ```
 
-    Final configuration:
+    Final configuration with added line "`base: '/my-hosted-repository-name/',`":
 
     ```javascript
     import { defineConfig } from 'vite'
@@ -96,7 +96,7 @@ In order to host my web app on GitHub Pages, I followed the instructions from Yo
 
     // https://vitejs.dev/config/
     export default defineConfig({
-        base: '/<my-hosted-repository-name>/',
+        base: '/my-hosted-repository-name/',
         plugins: [react()]
     })
     ```
@@ -112,22 +112,22 @@ In order to host my web app on GitHub Pages, I followed the instructions from Yo
     ```bash
     git add dist -f  # "-f" is required because Vite's default ".gitignore" ignores "/dist" folder; because we want it in our subtree, we need to override that
     git commit -m "Adding /dist folder"
-    git subtree push --prefix dist origin gh-pages  # this make "gh-pages" a subtree of our main branch; the "--prefix" option specifies the folder that we want for your "gh-pages"
+    git subtree push --prefix dist origin gh-pages  # this makes "gh-pages" a subtree of our main branch; the "--prefix" option specifies the folder that we want for your "gh-pages"
     ```
 
 6. Now take a look at your "gh-pages" branch in your repository on GitHub. This branch will basically contain just the root of the "/dist" folder. This is exactly what we want because when GitHub Pages serves this folder our "index.html" file will be found at the root.
 
-7. That's it! 🎉 In a few minutes, GitHub pages should refresh with the newest repository changes and we will be able to see our React web app project online. If we want to see exactly what is happening and being served in real time, we can go to the "Settings" tab of our repository on GitHub under the "Pages" section. Once this online build process is finished, we can click the link of our web app hosted on GitHub Pages and head over to our site. If we look at the URL, we can see that it is effectively deployed on "gitHub.io" under the form "https://\<my-github-profile-name>.github.io/\<my-hosted-repository-name>/", which in my case is "https://antho1426.github.io/react-advent-calendar-2022-nina/".
+7. That's it! 🎉 In a few minutes, GitHub pages should refresh with the newest repository changes and we will be able to see our React web app project online. If we want to see exactly what is happening and being served in real time, we can go to the "Settings" tab of our repository on GitHub under the "Pages" section. Once this online build process is finished, we can click the link of our web app hosted on GitHub Pages and head over to our site. If we look at the URL, we can see that it is effectively deployed on "gitHub.io" under the form "https://my-github-profile-name.github.io/my-hosted-repository-name/", which in my case is "https://antho1426.github.io/react-advent-calendar-2022-nina/".
 
 ## 5. Program update process
 
-In order to progressively adapt the original software of Thomas Weibenfalk to the Advent calendar I wanted to obtain, I had to update and test my code many times. Here are the steps I followed in order to iteratively build, test and launch the web app:
+In order to progressively adapt the original software of **Thomas Weibenfalk** to the Advent calendar I wanted to obtain, I had to update and test my code many times. Here are the steps I followed in order to iteratively build, test and launch the web app:
 
 1. First, make changes to the code 🛠️.
 
 2. Then build the code with `npm run build`.
 
-3. Check that everything is fine by launching an instance of the web app on a local development server with `npm run dev`. This command is used to run the dev script defined inside the "package.json" file at the root of the project. Alternatively, one could specify the port number on which the app has to run. This can be achieved as explained at "[Stack Overflow - How npm start runs a server on port 8000](https://stackoverflow.com/questions/24750253/how-npm-start-runs-a-server-on-port-8000)". The command would then be for instance `npm run dev -- --port 3001` to launch a local development server on port "3001".
+3. Check that everything is fine by launching an instance of the web app on a local development server with `npm run dev`. This command is used to run the "dev" script defined inside the "package.json" file at the root of the project. Alternatively, one could specify the port number on which the app has to run. This can be achieved as explained at "[Stack Overflow - How npm start runs a server on port 8000](https://stackoverflow.com/questions/24750253/how-npm-start-runs-a-server-on-port-8000)". To launch a local development server for instance on port "3001", the command would then be `npm run dev -- --port 3001`.
 
 4. Once manual testing is done, exit `npm run dev` by hitting "Ctrl" + "C" in your terminal window and optionally check the last changes you brought to your GitHub repository with `git status`.
 
@@ -178,9 +178,8 @@ What didn’t help in the end:
 
 ## 7. Version history
 
-+ 0.1
-  + Initial release
-
+- 0.1
+  - Initial release.
 
 ## 8. License
 
