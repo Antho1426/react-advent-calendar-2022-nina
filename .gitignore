@@ -1,5 +1,10 @@
+# Default files and folder to ignore
 node_modules
 .DS_Store
 dist
 dist-ssr
 *.local
+
+# My additional files and folders to ignore
+IMAGES
+resources

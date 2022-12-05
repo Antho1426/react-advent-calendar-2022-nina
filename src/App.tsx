@@ -238,6 +238,7 @@ const App: React.FC = () => {
 
   // DONE: Switch to "localStorage" mode when development and testing are finished.
   // A) ==== localStorage =====
+  //===========================
   // // This will populate the state with the hatches
   // const [hatches, setHatches] = React.useState<HatchType[]>(localStorage.getItem("calendar") !== undefined ? JSON.parse(localStorage.calendar) : createCalendar());  // cf. "Stack Overflow - "undefined" is not valid JSON" (https://stackoverflow.com/questions/73455972/undefined-is-not-valid-json)
   const [hatches, setHatches] = React.useState<HatchType[]>(
@@ -249,9 +250,12 @@ const App: React.FC = () => {
     localStorage.setItem('calendar', JSON.stringify(hatches));
   }, [hatches]);
   //===========================
+  //===========================
 
   // B) === No localStorage ===
+  //===========================
   //const [hatches, setHatches] = React.useState<HatchType[]>(createCalendar());
+  //===========================
   //===========================
 
   const handleClickHatch = React.useCallback((nr: number): void => {
@@ -261,7 +265,7 @@ const App: React.FC = () => {
   // Making sure the user can't click on a hatch if its date is not yet passed or it is not today
   const isHatchEnabled = React.useCallback((nr: number): boolean => {
   
-    // /!\ UTC time is the local time at Greenwich England! Since Nina will be in Australia during the entire month of December 2022, I am interested in the local date in Darwin, in the middle of Australia!
+    // /!\ UTC time is the local time at Greenwich England! Since Nina will be in Australia during the entire month of December 2022, I am interested in the local date in Darwin, in the middle of Australia in terms of time zone!
     /*
     const date = new Date();
     const day = date.getUTCDate();

@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Types
-//import { HatchType } from '../../helpers';
 import { HatchType } from '../../App';
 
 // Styles

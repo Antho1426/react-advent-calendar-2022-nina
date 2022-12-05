@@ -1,3 +1,5 @@
+// /!\ This file is no more used in my version of the app! This was to allow to generate images corresponding to the hatch images in the "/dist" folder so that they are referenced in the "gh-pages" subtree.
+
 /**
  * Found this on Stackoverflow https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
  * Shuffles array in place. ES6 version
